@@ -1,0 +1,5 @@
+.account-footer
+  - if devise_mapping.registerable? && controller_name != 'registrations' 
+    %p 
+      Don't have an account? 
+      = link_to "Sign up", new_registration_path(resource_name)

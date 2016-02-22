@@ -1,0 +1,25 @@
+.account-body
+  %h3 Welcome back to Volunteers
+  %h5 Please sign below
+  %br
+  = form_for(resource, as: resource_name, url: session_path(resource_name), class: "form, account-form") do |f|
+    .form-group
+      .field
+        = f.label :email, class: "placeholder-hidden"
+        = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Username" 
+    .form-group
+      .field
+        = f.label :password, class: "placeholder-hidden"
+        = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
+    - if devise_mapping.rememberable?
+      .form-group.clearfix
+        .pull-left
+          .field
+            = f.check_box :remember_me 
+            = f.label :remember_me 
+        - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+          .pull-right
+            = link_to "Forgot your password?", new_password_path(resource_name)
+    .form-group
+      .actions 
+        = f.submit "Log in", class: "btn btn-primary btn-block btn-lg"
