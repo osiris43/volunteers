@@ -1,0 +1,43 @@
+= render "devise/shared/masthead", :message => "Signup"
+.content
+  .container
+    %br.xs-30
+    .account-wrapper
+      .account-body
+        %h3 Get Started by Creating Your Account
+        %br
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form, account-form") do |f| 
+          = devise_error_messages! 
+          .form-group
+            .field
+              = f.label :name, class: "placeholder-hidden"
+              = f.email_field :name, autofocus: true, class: "form-control", placeholder: "Full Name" 
+          .form-group
+            .field
+              = f.label :email, class: "placeholder-hidden"
+              = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email Address" 
+          .form-group
+            .field
+              = f.label :password, class: "placeholder-hidden"
+              - if @minimum_password_length 
+                %em
+                  #{@minimum_password_length} characters minimum
+              %br
+              = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" 
+          .form-group
+            .field
+              = f.label :password_confirmation, class: "placeholder-hidden"
+              %br
+              = f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm password" 
+
+          .actions
+            = button_tag( :class => "btn btn-secondary btn-block btn-lg") do
+              Create My Account
+              %i.fa.fa-play-circle
+
+      .account-footer
+        - if controller_name != 'sessions' 
+          %p 
+            Already have an account? 
+            = link_to "Log in to your account", new_session_path(resource_name)
+
