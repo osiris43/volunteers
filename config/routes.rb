@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   get 'organization/index'
 
   get 'organization/new'
@@ -9,14 +11,22 @@ Rails.application.routes.draw do
 
   get 'organization/show'
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
   devise_scope :user do
-    root to: "devise/sessions#new"
+    authenticated :user do
+      root 'users#show', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
+
+  namespace :dashboard do
+    root to: "users#show"
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
