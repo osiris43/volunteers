@@ -7,7 +7,6 @@ gem 'rails', '4.2.3'
 gem 'pg'
 gem 'devise'
 gem 'therubyracer'
-gem 'less-rails-bootstrap'
 gem 'haml'
 gem 'haml-rails'
 

@@ -1,5 +1,5 @@
-#wrapper
-  %header.navbar{:role=>"banner"}
-    .container
-      .navbar-header
-        = link_to image_tag("mvptheme/logo.png"), :class => "navbar-brand navbar-brand-img"
+%header.navbar{:role=>"banner"}
+  .container
+    .navbar-header
+      = link_to "/", class: ["navbar-brand", "navbar-brand-img"] do
+        = image_tag("mvptheme/landing/logo.png")
