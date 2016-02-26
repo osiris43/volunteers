@@ -9,6 +9,7 @@ gem 'devise'
 gem 'therubyracer'
 gem 'haml'
 gem 'haml-rails'
+gem 'wicked'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
