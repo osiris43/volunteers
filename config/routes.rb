@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
   get 'users/show'
 
-  get 'organization/index'
 
-  get 'organization/new'
-
-  get 'organization/create'
-
-  get 'organization/update'
-
-  get 'organization/show'
+  resources :organizations
+  resources :after_signup
 
   resources :after_signup
 
