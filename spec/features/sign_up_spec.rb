@@ -10,6 +10,6 @@ describe "the signup process", :type => :feature do
       fill_in 'Password confirmation', :with => 'password'
     end
     click_button 'Create My Account'
-    expect(page).to have_content 'Add or Join an Organization'
+    expect(page).to have_content 'Join an Organization'
   end
 end

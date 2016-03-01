@@ -6,6 +6,7 @@ class AfterSignupController < ApplicationController
   def show
     @user = current_user
     @organizations = Organization.all
+    @organization = Organization.new
     render_wizard
   end
 
