@@ -5,5 +5,6 @@ window.OrganizationApp =
 	Routers: {}
 
 	initialize: (orgs) ->
+		console.log("initializing")
 		@collection = new OrganizationApp.Collections.Organizations(orgs)
 

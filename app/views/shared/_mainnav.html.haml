@@ -1,0 +1,25 @@
+.mainnav
+  .container
+    = link_to "#", class: ["mainnav-toggle"], "data-toggle" => "collapse", "data-target" => ".mainnav-collapse" do
+      %span.sr-only "Toggle navigation"
+      %i.fa.fa-bars
+    %nav.collapse.mainnav-collapse{:role => "navigation"}
+      %ui.mainnav-menu
+        %li.dropdown
+          = link_to "/", class: ["dropdown-toggle"], "data-toggle" => "dropdown", "data-hover" => "dropdown"  do
+            Dashboard
+            %i.mainnav-caret
+          %ul.dropdown-menu{:role => "menu"}
+            %li
+              = link_to "/" do
+                %i.fa.fa-dashboard.dropdown-icon
+                  Test
+        %li.dropdown
+          = link_to "/", class: ["dropdown-toggle"], "data-toggle" => "dropdown", "data-hover" => "dropdown"  do
+            Actions
+            %i.mainnav-caret
+          %ul.dropdown-menu{:role => "menu"}
+            %li
+              = link_to "/" do
+                %i.fa.fa-dashboard.dropdown-icon
+                  Add Hours
