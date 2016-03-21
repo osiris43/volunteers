@@ -5,6 +5,9 @@ class OrganizationsController < ApplicationController
   def new
   end
 
+  def show
+  end
+
   def create
     @organization = Organization.create(org_params)
     if @organization.save
@@ -19,8 +22,6 @@ class OrganizationsController < ApplicationController
   def update
   end
 
-  def show
-  end
  
   private
   def org_params

@@ -8,3 +8,6 @@
 ['volunteer', 'admin'].each do |role|
   Role.find_or_create_by({name: role})
 end
+['Training', 'Office', 'Education', 'Outreach', 'Miscellaneous', 'Garden/Maintenance'].each do |activity|
+  Activity.find_or_create_by({name: activity})
+end
