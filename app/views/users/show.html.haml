@@ -3,7 +3,9 @@
     %h1 Users#show
     %p Find me in app/views/users/show.html.haml
   .col-sm-5.col-md-4.layout-sidebar
-    .addHoursContainer
+    #addHoursContainer
 
-:javascript
-  DashboardApp.initialize()
+%script
+  var activities = $.parseJSON("#{j @activities.to_json.html_safe}")
+  DashboardApp.initialize(activities);
+

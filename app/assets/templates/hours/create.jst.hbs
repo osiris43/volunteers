@@ -1,3 +1,9 @@
 <div id="something">
-	<h4>made it</h4>
+	<h4>Add your hours here</h4>
+	<select id="activities"  class="js-example-basic-single js-states form-control">
+		<option value="">Choose Activity</option>
+		{{#each activities}}
+		<option value="{{id}}">{{name}}
+		{{/each}}
+	</select>
 </div>
