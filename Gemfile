@@ -12,6 +12,7 @@ gem 'haml-rails'
 gem 'wicked'
 gem 'bower'
 gem 'handlebars_assets'
+gem 'devise_token_auth'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

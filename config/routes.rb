@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  resources :contacts
+  resources :contacts, :volunteer_activities
   get 'users/show'
 
 
   resources :organizations
-  resources :after_signup
-
   resources :after_signup
 
   devise_for :users, :controllers => { registrations: 'registrations' }

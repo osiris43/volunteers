@@ -7,5 +7,7 @@
 
 %script
   var activities = $.parseJSON("#{j @activities.to_json.html_safe}")
+  var current_user = $.parseJSON("#{j current_user.to_json.html_safe}")
+  console.log(current_user)
   DashboardApp.initialize(activities);
 

@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require_tree ./mvpready
 //= require bower_components/handlebars/handlebars.runtime
 //= require users
 //= require organization
