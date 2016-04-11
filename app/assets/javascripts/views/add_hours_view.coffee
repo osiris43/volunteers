@@ -10,7 +10,8 @@ class DashboardApp.Views.AddHoursView extends Backbone.View
 		@collection.bind("reset", @addAll)
 		console.log("Add Hours initialize")
 		@activities = options.activities
-		console.log(@activities)
+		@.listenTo(@collection, 'sync', @hoursSaved)
+		@.listenTo(@collection, 'error', @error)
 		@.render()
 
 	render: -> 
@@ -20,17 +21,22 @@ class DashboardApp.Views.AddHoursView extends Backbone.View
 	addAll: ->
 		console.log("adding all hours")
 
-	addHours: ->
-		console.log($("#activityHours").val())
-		console.log($("#activityDate").val())
-		console.log($("#activityType").val())
+	addHours: (event) ->
+		event.preventDefault()
+		log = 
+			hours: ($("#activityHours").val())
+			date: ($("#activityDate").val())
+			activity: ($("#activityType").val())
 
-		log = new VolunteerLog({
-			hours: $("#activityHours").val(),
-			date: $("#activityDate").val(),
-			activity: $("#activityType").val()
-		}) 
 
-		log.save()
-
+		@collection.create log
 		return false
+	
+	hoursSaved: ->
+		console.log("event called")
+		$("#addHoursMessage").text("Hours added")
+		$("#hoursResult").addClass("alert-success").fadeIn('fast')
+		$("#add-hours")[0].reset()
+
+	error: (options) -> 
+		console.log("error")

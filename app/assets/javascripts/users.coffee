@@ -4,8 +4,9 @@ window.DashboardApp =
 	Views: {}
 	Routers: {}
 
-	initialize: (activities) ->
+	initialize: (activities, hours) ->
 		console.log("Dashboard app initializing")
-		@collection = new DashboardApp.Collections.LoggedHours()
+		console.log(hours)
+		@collection = new DashboardApp.Collections.LoggedHours(hours)
 		@view = new DashboardApp.Views.AddHoursView({collection: @collection, activities: activities})
 

@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   has_many :organization_roles, class_name: "OrganizationRole"
   has_many :organizations, through: :organization_roles
   has_many :roles, through: :organization_roles
-  # Include default devise modules. Others available are:
+	has_many :volunteer_activities
+
+	# Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
