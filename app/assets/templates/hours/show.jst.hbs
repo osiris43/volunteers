@@ -1,0 +1,19 @@
+<div id="something">
+	<h2>Your hours report</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Activity</th>
+				<th>Hours</th>
+			</tr>
+		</thead>
+		{{#each loggedHours}}
+		<tr>
+			<td>{{volunteer_activity.date}}</td>
+			<td>{{volunteer_activity.activity_id}}</td>
+			<td>{{volunteer_activity.time}}</td>
+		</tr>
+		{{/each}}
+		</table>
+</div>

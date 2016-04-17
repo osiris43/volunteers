@@ -7,7 +7,6 @@ class DashboardApp.Views.AddHoursView extends Backbone.View
 		"click #addHours" : "addHours"
 	}
 	initialize: (options) -> 
-		@collection.bind("reset", @addAll)
 		console.log("Add Hours initialize")
 		@activities = options.activities
 		@.listenTo(@collection, 'sync', @hoursSaved)
@@ -18,8 +17,6 @@ class DashboardApp.Views.AddHoursView extends Backbone.View
 		console.log("rendering add hours view")
 		@$el.html @template({activities: @activities})
 
-	addAll: ->
-		console.log("adding all hours")
 
 	addHours: (event) ->
 		event.preventDefault()

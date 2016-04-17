@@ -3,3 +3,7 @@ class DashboardApp.Collections.LoggedHours extends Backbone.Collection
 
 	initialize: (options) ->
 		console.log("Logged hours collection")
+
+	comparator: (model) ->
+		d = new Date(model.get('date'))
+		return -d.getTime()
