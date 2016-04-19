@@ -16,7 +16,10 @@
 //= require underscore
 //= require backbone
 //= require_tree ./mvpready
-//= require bower_components/handlebars/handlebars.runtime
+//= require handlebars/handlebars.runtime
+//= require datatables/media/js/jquery.dataTables.min.js
+//= require datatables-helper/js/datatables-helper
+//= require datatables/media/js/dataTables.bootstrap.min
 //= require users
 //= require organization
 //= require_tree ../templates

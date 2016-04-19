@@ -1,19 +1,27 @@
-<div id="something">
-	<h2>Your hours report</h2>
-	<table>
-		<thead>
+<div class="portlet portlet-default">
+	<div class="portlet-header">
+		<div class="portlet-title">
+			<h4><u>Your hours report</u></h4>
+		</div>
+	</div>
+	<div class="portlet-body">
+		<table id="Hours_table" class="table table-striped table-bordered table-hover ui-datatable"
+		data-paging="true" data-page-length="5" data-info="true"
+		data-global-search="false" data-length-change="false">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Activity</th>
+					<th>Hours</th>
+				</tr>
+			</thead>
+			{{#each loggedHours}}
 			<tr>
-				<th>Date</th>
-				<th>Activity</th>
-				<th>Hours</th>
+				<td>{{volunteer_activity.date}}</td>
+				<td>{{volunteer_activity.activity_id}}</td>
+				<td>{{volunteer_activity.time}}</td>
 			</tr>
-		</thead>
-		{{#each loggedHours}}
-		<tr>
-			<td>{{volunteer_activity.date}}</td>
-			<td>{{volunteer_activity.activity_id}}</td>
-			<td>{{volunteer_activity.time}}</td>
-		</tr>
-		{{/each}}
+			{{/each}}
 		</table>
-</div>
+	</div> <!-- /.portlet-body -->
+</div><!-- /.portlet -->
