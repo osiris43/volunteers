@@ -7,14 +7,14 @@ class DashboardApp.Views.AddHoursView extends Backbone.View
 		"click #addHours" : "addHours"
 	}
 	initialize: (options) -> 
-		console.log("Add Hours initialize")
+		#console.log("Add Hours initialize")
 		@activities = options.activities
 		@.listenTo(@collection, 'sync', @hoursSaved)
 		@.listenTo(@collection, 'error', @error)
 		@.render()
 
 	render: -> 
-		console.log("rendering add hours view")
+		#console.log("rendering add hours view")
 		@$el.html @template({activities: @activities})
 
 
@@ -30,7 +30,6 @@ class DashboardApp.Views.AddHoursView extends Backbone.View
 		return false
 	
 	hoursSaved: ->
-		console.log("event called")
 		$("#addHoursMessage").text("Hours added")
 		$("#hoursResult").addClass("alert-success").fadeIn('fast')
 		$("#add-hours")[0].reset()

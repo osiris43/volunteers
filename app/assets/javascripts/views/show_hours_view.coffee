@@ -10,14 +10,15 @@ class DashboardApp.Views.ShowHoursView extends Backbone.View
 		console.log("View Hours initialize")
 	
 	render: -> 
-		console.log("rendering add hours view")
-		console.log(@collection.toJSON())
 		@$el.html @template(loggedHours: @collection.toJSON())
 		@
 
 	addAll: ->
 		@.render()
 
-	hoursSaved: ->
-		console.log("add to the view here")
-		@.render()
+	hoursSaved: (model, collection, options) ->
+		table = $('#Hours_table').DataTable()
+		node = table.row.add([model.get("date"), model.get("activity_name"), model.get("time")]).draw().node()
+		console.log($(node).css('backgroundColor'))
+		$(node).css('backgroundColor', '#b3ffb3').animate({backgroundColor: 'white'})
+

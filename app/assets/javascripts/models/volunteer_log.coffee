@@ -4,7 +4,7 @@ class DashboardApp.Models.VolunteerLog extends Backbone.Model
     "volunteer_activities"
   
 	initialize: (options) ->
-		console.log("model initialized")
+		#console.log("model initialized")
 
 	toJSON: () ->
 		return {"volunteer_activity": _.clone(@.attributes)}
