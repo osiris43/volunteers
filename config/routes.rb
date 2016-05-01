@@ -20,9 +20,9 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :dashboard do
-    root to: "users#show"
-  end
+  #namespace :dashboard do
+  #  root to: "users#show"
+  #end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

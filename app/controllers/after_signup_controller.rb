@@ -12,6 +12,8 @@ class AfterSignupController < ApplicationController
 
   def update
     @user = current_user
+    org = Organization.find(after_signup_params[:organization_ids])
+    @user.add_role('volunteer', org)
     @user.update(after_signup_params)
     finish_wizard_path
   end
