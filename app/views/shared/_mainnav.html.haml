@@ -5,8 +5,8 @@
       %i.fa.fa-bars
     %nav.collapse.mainnav-collapse{:role => "navigation"}
       %ui.mainnav-menu
-        %li.dropdown
-          = link_to "/", class: ["dropdown-toggle"], "data-toggle" => "dropdown", "data-hover" => "dropdown"  do
+        %li
+          = link_to "/" do 
             Dashboard
             %i.mainnav-caret
           %ul.dropdown-menu{:role => "menu"}

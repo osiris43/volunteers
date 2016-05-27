@@ -13,4 +13,9 @@ class User < ActiveRecord::Base
     role = Role.find_by(name: role) unless role.is_a?(Role)
     OrganizationRole.create(user: self, organization: organization, role: role)
   end 
+
+	def admin?
+		# This is a future bug if more organizations are added
+		return roles.select{|r| r.name == "admin"}.count > 0
+	end
 end

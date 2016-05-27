@@ -1,0 +1,18 @@
+.portlet.portlet-default
+  .portlet-header
+    %h4.portlet-title
+      Volunteers List
+.portlet-body
+  %table{:id => "Hours_table", "class" => "table table-striped table-bordered table-hover ui-datatable", 
+  "data-paging" =>"true", "data-page-length"=>"10", "data-info"=>"true", "data-global-search"=>"false", 
+  "data-length-change"=>"false"}
+    %thead
+      %tr
+        %th Name
+        %th Email Address
+      - @users.each do |user|
+        %tr
+          %td= user.name 
+          %td= user.email
+
+

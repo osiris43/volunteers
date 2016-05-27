@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "when user is admin" do
+    let(:user) {FactoryGirl.create :admin}
+    it "reports as admin" do
+      expect(user.admin?).to be(true)
+    end
+  end
 end
