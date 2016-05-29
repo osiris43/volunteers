@@ -1,7 +1,5 @@
 class DashboardApp.Models.VolunteerLog extends Backbone.Model
 
-	url: ->
-    "volunteer_activities"
   
 	initialize: (options) ->
 		#console.log("model initialized")

@@ -10,5 +10,6 @@
 %script
   var activities = $.parseJSON("#{j @activities.to_json.html_safe}")
   var hours = $.parseJSON("#{j @volunteer_hours.to_json.html_safe}")
-  DashboardApp.initialize(activities, hours);
+  var user = $.parseJSON("#{j current_user.to_json.html_safe}").id
+  DashboardApp.initialize(activities, hours, user);
 

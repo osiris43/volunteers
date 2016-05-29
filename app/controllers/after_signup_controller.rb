@@ -12,18 +12,17 @@ class AfterSignupController < ApplicationController
 
   def update
     @user = current_user
-    org = Organization.find(after_signup_params[:organization_ids])
-    @user.add_role('volunteer', org)
-    @user.update(after_signup_params)
+    org = Organization.find(after_signup_params[:organization_id])
+    org.users << current_user
     finish_wizard_path
   end
 
   def finish_wizard_path
-    redirect_to users_show_path(current_user)
+    redirect_to authenticated_root_path(current_user)
   end
 
   private
   def after_signup_params
-    params.require(:user).permit(:organization_ids)
+    params.require(:user).permit(:organization_id)
   end
 end

@@ -11,7 +11,8 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.create(org_params)
     if @organization.save
-      current_user.add_role('admin', @organization)
+      current_user.admin = true
+      current_user.save
       redirect_to users_show_path(current_user)
     else
       render 'new'

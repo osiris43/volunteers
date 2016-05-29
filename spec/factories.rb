@@ -8,9 +8,7 @@ FactoryGirl.define do
   
   factory :admin, parent: :user do
     name  "Admin User"
-    after(:create) do |admin|
-      admin.add_role(FactoryGirl.create(:admin_role), FactoryGirl.create(:organization))
-    end
+    admin true
   end
 
   factory :organization do
@@ -19,8 +17,5 @@ FactoryGirl.define do
 
   factory :role do 
     name "user"
-  end
-  factory :admin_role, class: Role do 
-    name "admin"
   end
 end

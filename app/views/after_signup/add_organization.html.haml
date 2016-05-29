@@ -9,8 +9,7 @@
         = form_for(@user, url: wizard_path, method: :put, class: ["form", "account-form"]) do |f|
           .form-group
             .field
-              //= f.collection_select :organization_ids, @organizations, :id, :name, :placeholder => 'Organization', :class => "js-example-data-array form-control"
-              = f.collection_select :organization_ids, @organizations, :id, :name, {}, :placeholder => "Organizations", :class => "js-example-data-array form-control"
+              = f.collection_select :organization_id, @organizations, :id, :name, {}, :placeholder => "Organizations", :class => "js-example-data-array form-control"
           .form-group
             .actions
               = f.submit 'Join', :class => 'btn btn-secondary btn-block btn-lg' 
