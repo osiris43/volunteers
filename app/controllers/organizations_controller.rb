@@ -13,7 +13,8 @@ class OrganizationsController < ApplicationController
     if @organization.save
       current_user.admin = true
       current_user.save
-      redirect_to users_show_path(current_user)
+      @organization.users << current_user
+      redirect_to authenticated_root_path(current_user)
     else
       render 'new'
     end

@@ -10,24 +10,24 @@
           Hours this month
         .row-stat-value
           %h3 
-            = @monthsHours
+            = current_user.organization.hours_by_month(Date.today)
         %span.label.label-success.row-stat-badge
-          = "#{@monthChange}%"
+          = "#{current_user.organization.change_by_time_series("month")}%"
     .col-sm-6.col-md-3
       .row-stat
         %p.row-stat-label
           Hours this quarter
         .row-stat-value
           %h3 
-            = @quarterHours
+            = current_user.organization.hours_by_quarter(Date.today)
         %span.label.label-success.row-stat-badge
-          = "#{@quarterChange}%"
+          = "#{current_user.organization.change_by_time_series("quarter")}%"
     .col-sm-6.col-md-3
       .row-stat
         %p.row-stat-label
           Hours this year
         .row-stat-value
           %h3 
-            = @monthsHours
+            = current_user.organization.hours_by_year(Date.today)
         %span.label.label-success.row-stat-badge
-          +43%
+          = "#{current_user.organization.change_by_time_series("year")}%"

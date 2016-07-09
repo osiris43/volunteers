@@ -1,11 +1,8 @@
-- if current_user.admin?
-  = render :partial => "admin_dashboard"
-- else 
-  .layout.layout-stack-sm.layout-main-left
-    .col-sm-7.col-md-8.layout-main
-      #viewHoursContainer
-    .col-sm-5.col-md-4.layout-sidebar
-      #addHoursContainer
+.layout.layout-stack-sm.layout-main-left
+  .col-sm-7.col-md-8.layout-main
+    #viewHoursContainer
+  .col-sm-5.col-md-4.layout-sidebar
+    #addHoursContainer
 
 %script
   var activities = $.parseJSON("#{j @activities.to_json.html_safe}")

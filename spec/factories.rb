@@ -15,7 +15,15 @@ FactoryGirl.define do
     name "Test Organization"
   end
 
-  factory :role do 
-    name "user"
+  factory :activity do
+    name  "Office"
+  end
+
+  factory :volunteer_activity do
+    time      4
+    user      
+    activity  
+    organization  
+    date      DateTime.now
   end
 end

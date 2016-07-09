@@ -10,9 +10,11 @@
       %tr
         %th Name
         %th Email Address
+        %th Current Quarter's Hours
       - @users.each do |user|
         %tr
-          %td= user.name 
+          %td= link_to user.name, user_path(user)
           %td= user.email
+          %td= user.current_quarters_hours
 
 
