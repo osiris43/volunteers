@@ -10,12 +10,29 @@
           = devise_error_messages! 
           .form-group
             .field
-              = f.label :name, class: "placeholder-hidden"
               = f.text_field :name, autofocus: true, class: "form-control", placeholder: "Full Name" 
           .form-group
             .field
-              = f.label :email, class: "placeholder-hidden"
               = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email Address" 
+          .form-group
+            .field
+              = f.text_field :address1, autofocus: true, class: "form-control", placeholder: "Address 1"
+          .form-group
+            .field
+              = f.text_field :address2, autofocus: true, class: "form-control", placeholder: "Address 2" 
+          .form-group
+            .field
+              = f.text_field :city, autofocus: true, class: "form-control", placeholder: "City" 
+          .form-group
+            .field
+              = f.select :state, us_states, {}, {class: "js-example-basic-single form-control"}
+          .form-group
+            .field
+              = f.text_field :zip, autofocus: true, class: "form-control", placeholder: "Zip" 
+          .form-group
+            .field
+              = f.label "Phone Number - Will format automatically"
+              = f.text_field :phone, autofocus: true, id: "apple", class: "form-control phone_us", placeholder: "Phone"
           .form-group
             .field
               = f.label :password, class: "placeholder-hidden"
