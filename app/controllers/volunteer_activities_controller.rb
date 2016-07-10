@@ -12,8 +12,8 @@ class VolunteerActivitiesController < ApplicationController
   end
 
   def index
-
   end
+
   private
     def volunteer_activity_params
       params.require(:volunteer_activity).permit(:hours, :date, :activity)

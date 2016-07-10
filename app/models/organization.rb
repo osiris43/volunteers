@@ -39,4 +39,8 @@ class Organization < ActiveRecord::Base
   def hours_by_year(basis_date)
     volunteer_activities.where(:date => basis_date.beginning_of_year..basis_date.end_of_year).sum("time").to_f
   end
+
+  def quarterly_report(basis_date=Date.today)
+    volunteer_activities.joins(:activity).where(:date => basis_date.beginning_of_quarter..basis_date.end_of_quarter).select("activity_id, activities.name, sum(time) as total_hours").group("activity_id, activities.name")
+  end
 end
