@@ -1,0 +1,20 @@
+= render "devise/shared/masthead", :message => "Forgot Password"
+.content
+  .container
+    %br.xs-30
+    .account-wrapper
+      %h2 Forgot your password?
+
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| 
+        = devise_error_messages! 
+        .form-group
+          .field
+            = f.label :email, class: "placeholder-hidden"
+            = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Username" 
+        .form-group
+          .actions 
+            = button_tag( :class => "btn btn-primary btn-block btn-lg") do
+              Send me reset instructions
+              %i.fa.fa-play-circle
+
+      = render "devise/shared/links"
