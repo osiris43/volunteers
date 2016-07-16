@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dashboard, only: [:index]
   resources :contacts
   
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'users#show', as: :authenticated_root
+      root 'dashboard#index', as: :authenticated_root
     end
 
     unauthenticated do
