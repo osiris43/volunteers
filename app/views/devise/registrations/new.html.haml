@@ -35,6 +35,10 @@
               = f.text_field :phone, autofocus: true, id: "apple", class: "form-control phone_us", placeholder: "Phone"
           .form-group
             .field
+              = f.label "Date of Birth - MM/DD/YYYY Format"
+              = f.text_field :dob, autofocus: true, class: "form-control dob_field", placeholder: "Date Of Birth"
+          .form-group
+            .field
               = f.label :password, class: "placeholder-hidden"
               - if @minimum_password_length 
                 %em

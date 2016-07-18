@@ -12,3 +12,6 @@ window.DashboardApp =
 
 $(document).ready ->
 	$('.phone_us').mask('(000) 000-0000')
+
+$(document).ready -> 
+	$('.dob_field').mask('00/00/0000')
