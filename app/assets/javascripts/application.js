@@ -11,16 +11,15 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery.min.js
+//= require datatables/media/js/jquery.dataTables.min.js
+//= require datatables-helper/js/datatables-helper
+//= require datatables/media/js/dataTables.bootstrap.min
 //= require bootstrap/dist/js/bootstrap.min.js
 //= require jquery_ujs
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require_tree ./mvpready
 //= require handlebars/handlebars.runtime
-//= require datatables/media/js/jquery.dataTables.min.js
-//= require datatables-helper/js/datatables-helper
-//= require datatables/media/js/dataTables.bootstrap.min
 //= require users
 //= require organization
 //= require_tree ../templates

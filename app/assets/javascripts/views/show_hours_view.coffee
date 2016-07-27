@@ -7,7 +7,6 @@ class DashboardApp.Views.ShowHoursView extends Backbone.View
 		_.bindAll(@, "render", "addAll")
 		@collection.bind("reset", @addAll)
 		@.listenTo(@collection, 'sync', @hoursSaved)
-		console.log("View Hours initialize")
 	
 	render: -> 
 		@$el.html @template(loggedHours: @collection.toJSON())
@@ -19,6 +18,5 @@ class DashboardApp.Views.ShowHoursView extends Backbone.View
 	hoursSaved: (model, collection, options) ->
 		table = $('#Hours_table').DataTable()
 		node = table.row.add([model.get("date"), model.get("activity_name"), model.get("time")]).draw().node()
-		console.log($(node).css('backgroundColor'))
 		$(node).css('backgroundColor', '#b3ffb3').animate({backgroundColor: 'white'})
 

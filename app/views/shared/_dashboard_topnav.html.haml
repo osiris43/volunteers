@@ -1,7 +1,7 @@
 %header.navbar{:role=>"banner"}
   .container
     .navbar-header
-      = link_to class: ["navbar-brand", "navbar-brand-img"] do
+      = link_to authenticated_root_url, class: ["navbar-brand", "navbar-brand-img"] do
         = image_tag("mvptheme/admin/logo.png")
     %nav.collapse.navbar-collapse{:role => "navigation"}
       %ul.nav.navbar-nav.navbar-left

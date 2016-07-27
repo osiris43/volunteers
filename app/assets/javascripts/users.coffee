@@ -15,3 +15,5 @@ $(document).ready ->
 
 $(document).ready -> 
 	$('.dob_field').mask('00/00/0000')
+
+
