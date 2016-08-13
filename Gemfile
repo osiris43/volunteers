@@ -5,14 +5,13 @@ ruby '2.3.0'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
-gem 'devise'
+gem 'devise', '~> 4.2.0'
 gem 'therubyracer'
 gem 'haml'
 gem 'haml-rails'
 gem 'wicked'
 gem 'bower'
 gem 'handlebars_assets'
-gem 'devise_token_auth'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

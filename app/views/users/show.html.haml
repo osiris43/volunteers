@@ -1,12 +1,41 @@
-.layout.layout-stack-sm.layout-main-left
-  .col-sm-7.col-md-8.layout-main
-    #viewHoursContainer
-  .col-sm-5.col-md-4.layout-sidebar
-    #addHoursContainer
-
-%script
-  var activities = $.parseJSON("#{j @activities.to_json.html_safe}")
-  var hours = $.parseJSON("#{j @volunteer_hours.to_json.html_safe}")
-  var user = $.parseJSON("#{j current_user.to_json.html_safe}").id
-  DashboardApp.initialize(activities, hours, user);
-
+.row
+  .col-sm-5.col-md-3
+    .profile-avatar
+      = image_tag "mvptheme/admin/avatar-4-sm.jpg", :class => "profile-avatar-img img-responsive thumbnail" 
+  .col-md-6.col-sm-7
+    %br.visible-xs
+    %h3= current_user.name
+    %hr
+    %ul.icons-list
+      %li
+        %i.icon-li.fa.fa-envelope
+        = @user.email
+      %li
+        %i.icon-li.fa.fa-map-marker
+        #{@user.address1}, #{@user.city}, #{@user.zip}
+      %li
+        %i.icon-li.fa.fa-mobile
+        #{@user.phone}
+    %hr
+    %br
+    %br
+    .heading-block
+      %h4 
+        Hours Report
+    .col-sm-6.col-md-3
+      .row-stat
+        %p.row-stat-label 
+          Hours in #{Date.today.strftime("%B")} 
+        %h3.row-stat-value 
+          = @user.current_month_hours
+    .col-sm-6.col-md-3
+      .row-stat
+        %p.row-stat-label Hours in this quarter
+        %h3.row-stat-value 
+          = @user.current_quarters_hours
+    .col-sm-6.col-md-3
+      .row-stat
+        %p.row-stat-label 
+          Hours in #{Date.today.year}
+        %h3.row-stat-value 
+          = @user.current_year_hours
