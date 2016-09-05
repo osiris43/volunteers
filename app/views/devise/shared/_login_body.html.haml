@@ -5,6 +5,7 @@
   = form_for(resource, as: resource_name, url: session_path(resource_name), class: "form, account-form") do |f|
     = devise_error_messages! 
     = flash[:notice]
+    = flash[:alert]
     .form-group
       .field
         = f.label :email, class: "placeholder-hidden"
