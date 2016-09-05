@@ -1,0 +1,30 @@
+= render "devise/shared/masthead", :message => "Change Your Password"
+.content
+  .container
+    %br.xs-30
+    .account-wrapper
+      %h2 Change Your Password
+
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| 
+        = devise_error_messages! 
+        .form-group
+          .field
+            = f.hidden_field :reset_password_token 
+          .field
+            = f.label :password, "New password"
+            - if @minimum_password_length
+              %em= "#{@minimum_password_length} characters minimum"
+            %br
+            = f.password_field :password, autofocus: true, autocomplete: "off"
+          %br
+          .field
+            = f.label :password_confirmation, "Confirm new password"
+            %br
+            = f.password_field :password_confirmation, autocomplete: "off"
+        .form-group
+          .actions 
+            = button_tag( :class => "btn btn-primary btn-block btn-lg") do
+              Reset My Password
+              %i.fa.fa-play-circle
+
+      = render "devise/shared/links"
