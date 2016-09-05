@@ -71,7 +71,7 @@ Rails.application.configure do
     :user_name => ENV["SENDGRID_USERNAME"],
     :password  => ENV["SENDGRID_PASSWORD"], # SMTP password is any valid API key, when user_name is "apikey".
     :authentication => 'login',
-    :domain => 'volunteerhours.report', # your domain to identify your server when connecting
+    :domain => 'heroku.com', # your domain to identify your server when connecting
 }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
