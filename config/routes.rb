@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+
   resources :dashboard, only: [:index]
   resources :contacts
   
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users do
     resources :volunteer_activities
+    resources :monthly_report
   end
 
   resources :organizations

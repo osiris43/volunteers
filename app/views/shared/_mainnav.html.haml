@@ -33,3 +33,7 @@
                 = link_to user_volunteer_activities_path(current_user.id) do
                   %i.fa.fa-dashboard.dropdown-icon
                     Quarterly Report
+              %li
+                = link_to user_monthly_report_index_path(current_user.id) do
+                  %i.fa.fa-dashboard.dropdown-icon
+                    Monthly Report
