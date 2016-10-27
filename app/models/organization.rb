@@ -45,6 +45,16 @@ class Organization < ActiveRecord::Base
   end
   
   def monthly_report(basis_date=Date.today)
-    volunteer_activities.joins(:activity).where(:date => basis_date.beginning_of_month..basis_date.end_of_month).select("activity_id, activities.name, sum(time) as total_hours").group("activity_id, activities.name")
+    this_month = volunteer_activities.joins(:activity).where(:date => basis_date.beginning_of_month..basis_date.end_of_month).select("activity_id, activities.name, sum(time) as total_hours").group("activity_id, activities.name")
+    last_month = volunteer_activities.joins(:activity).where(:date => basis_date.last_month.beginning_of_month..basis_date.last_month.end_of_month).select("activity_id, activities.name, sum(time) as total_hours").group("activity_id, activities.name")
+    activities = Activity.all
+    report = {}
+    activities.each do |act|
+      current = this_month.inject(0){|sum, a| a.activity_id == act.id ? sum + a.total_hours : 0}
+      last = last_month.inject(0){|sum, a| a.activity_id == act.id ? sum + a.total_hours : 0}
+      report[act.name] = [current, last]
+    end
+
+    report
   end
 end

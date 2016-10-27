@@ -15,8 +15,10 @@
       %tr
         %th Activity
         %th Total Hours This Month
-      - current_user.organization.monthly_report.each do |activity|
+        %th Total Hours Last Month
+      - current_user.organization.monthly_report.each do |key, values|
         %tr
-          %td= activity.name
-          %td= activity.total_hours
+          %td= key
+          %td= values[0]
+          %td= values[1]
 
