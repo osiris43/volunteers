@@ -10,6 +10,17 @@ window.DashboardApp =
 		@showview = new DashboardApp.Views.ShowHoursView({collection: @collection})
 		@collection.reset(hours)
 
+window.UserApp = 
+	Models: {}
+	Collections: {}
+	Views: {}
+	Routers: {}
+
+	initialize: () ->
+		#@collection = new DashboardApp.Collections.LoggedHours(id: user_id)
+		@showview = new DashboardApp.Views.ShowUserView()
+		#@collection.reset(hours)
+
 $(document).ready ->
 	$('.phone_us').mask('(000) 000-0000')
 

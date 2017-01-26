@@ -39,3 +39,10 @@
           Hours in #{Date.today.year}
         %h3.row-stat-value 
           = @user.current_year_hours
+
+#monthlyChart.chart-holder{ :style => "width:600px;height:300px" }
+
+%script
+  -#$.plot($("#monthlyChart"), [ [[1, 0], [2, 4 ],[3,5]] ], { xaxis: { mode : "time", timeformat: "%b",  ticks: [[1, "Jan"], [2, "Feb"], [3, "Mar"], [4, "Apr"], [5, "May"], [6, "Jun"], [7, "Jul"], [8, "Aug"], [9, "Sep"], [10, "Oct"], [11, "Nov"], [12, "Dec"]]}})
+  UserApp.initialize();
+
