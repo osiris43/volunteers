@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @history = @user.hours_history_by_month(13)
   end
 
   def index

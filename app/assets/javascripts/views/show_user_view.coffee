@@ -12,11 +12,15 @@ class DashboardApp.Views.ShowUserView extends Backbone.View
     grid: { hoverable: true, clickable: true, autoHighlight: true }
 
   initialize: (options) -> 
+    @history = options.history
+    @plotOptions.xaxis.ticks = @history.ticks
+    @series = @history.series
     @.render()
 
   render: -> 
     options = _.clone(@plotOptions)
-    series = [ [[1, 0], [2, 4 ],[3,5]] ]
+    console.log(@series)
+    series = [ [[1, 0], [2, 4 ],[13,5]] ]
     @$el.html @template()
-    $.plot(@$('#yearlyHoursGraph'), series, options )
+    $.plot(@$('#yearlyHoursGraph'), @series, options )
     @
