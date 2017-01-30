@@ -18,6 +18,9 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require Flot/jquery.flot
+//= require Flot/jquery.flot.time
+//= require flot.tooltip/js/jquery.flot.tooltip.min
 //= require_tree ./mvpready
 //= require handlebars/handlebars.runtime
 //= require users
@@ -27,5 +30,3 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require mask.js
-//= require Flot/jquery.flot
-//= require Flot/jquery.flot.time
