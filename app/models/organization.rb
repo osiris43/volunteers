@@ -50,8 +50,8 @@ class Organization < ActiveRecord::Base
     activities = Activity.all
     report = {}
     activities.each do |act|
-      current = this_month.inject(0){|sum, a| a.activity_id == act.id ? sum + a.total_hours : 0}
-      last = last_month.inject(0){|sum, a| a.activity_id == act.id ? sum + a.total_hours : 0}
+      current = this_month.inject(0){|sum, a| a.activity_id == act.id ? sum + a.total_hours : sum}
+      last = last_month.inject(0){|sum, a| a.activity_id == act.id ? sum + a.total_hours : sum}
       report[act.name] = [current, last]
     end
 
