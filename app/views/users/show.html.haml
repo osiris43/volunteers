@@ -4,7 +4,7 @@
       = image_tag "mvptheme/admin/avatar-4-sm.jpg", :class => "profile-avatar-img img-responsive thumbnail" 
   .col-md-6.col-sm-7
     %br.visible-xs
-    %h3= current_user.name
+    %h3= @user.name
     %hr
     %ul.icons-list
       %li
@@ -41,7 +41,26 @@
           = @user.current_year_hours
 
 #monthlyChart.chart-holder{ :style => "width:600px;height:300px" }
-
+%br
+%br
+.portlet.portlet-default
+  .portlet-header
+    %h4.portlet-title
+      #{@user.name}'s hours in this quarter
+.portlet-body
+  %table{:id => "Hours_table", "class" => "table table-striped table-bordered table-hover ui-datatable", 
+  "data-paging" =>"true", "data-page-length"=>"10", "data-info"=>"true", "data-global-search"=>"false", 
+  "data-length-change"=>"false"}
+    %thead
+      %tr
+        %th Date
+        %th Activity
+        %th Hours
+      - @user.current_quarters_activities.each do |hour|
+        %tr
+          %td= hour.date
+          %td= hour.activity_name
+          %td= hour.time
 %script
   var hoursHistory = $.parseJSON("#{j @history.to_json.html_safe}")
   -#$.plot($("#monthlyChart"), [ [[1, 0], [2, 4 ],[3,5]] ], { xaxis: { mode : "time", timeformat: "%b",  ticks: [[1, "Jan"], [2, "Feb"], [3, "Mar"], [4, "Apr"], [5, "May"], [6, "Jun"], [7, "Jul"], [8, "Aug"], [9, "Sep"], [10, "Oct"], [11, "Nov"], [12, "Dec"]]}})

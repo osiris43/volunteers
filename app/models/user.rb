@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
   def current_quarters_hours
     volunteer_activities.where("date > ?", DateTime.now.beginning_of_quarter).inject(0){|sum, v| sum+v.time}.to_f
   end
+  
+  def current_quarters_activities
+    volunteer_activities.where("date > ?", DateTime.now.beginning_of_quarter).all
+  end
+
   def current_month_hours
     volunteer_activities.where("date > ?", DateTime.now.beginning_of_month).inject(0){|sum, v| sum+v.time}.to_f
   end
@@ -16,12 +21,11 @@ class User < ActiveRecord::Base
     volunteer_activities.where("date > ?", DateTime.now.beginning_of_year).inject(0){|sum, v| sum+v.time}.to_f
   end
 
+
   def hours_history_by_month(num_months)
     start = DateTime.now - num_months.months
     activities = volunteer_activities.where("date > ?", start.beginning_of_month).all
     grouped = activities.group_by{|a| a.date.strftime("%b%y")}
-    logger.debug "dumb"
-    logger.debug grouped
     ticks, series = [], []
     
     num_months.times do |x|

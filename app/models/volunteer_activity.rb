@@ -12,4 +12,8 @@ class VolunteerActivity < ActiveRecord::Base
     }
   end
 
+  def activity_name
+    self.activity.name
+  end
+
 end
