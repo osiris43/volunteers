@@ -25,6 +25,7 @@
 //= require handlebars/handlebars.runtime
 //= require users
 //= require organization
+//= require volunteer_activities
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

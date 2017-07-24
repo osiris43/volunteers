@@ -11,7 +11,26 @@ class VolunteerActivitiesController < ApplicationController
     render :json => model.to_json, :status => 201
   end
 
+  def test
+    logger.debug(params)
+  end
+
   def index
+    @quarters = []
+    now = DateTime.now.beginning_of_quarter
+    for i in 0..6
+      @quarters << {:id => i, :name => "#{Date::MONTHNAMES[now.month]} #{now.year}", :beginning => now}
+      now = now.last_quarter
+    end
+
+    if params[:quarter]
+      quarter_idx = params[:quarter].to_i
+      @displayed_quarter = @quarters[quarter_idx]
+      @activities = current_user.organization.quarterly_report(@displayed_quarter[:beginning])
+    else
+      @activities = current_user.organization.quarterly_report
+      @displayed_quarter = @quarters[0]
+    end
   end
 
   private

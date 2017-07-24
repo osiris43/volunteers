@@ -8,16 +8,24 @@
     %h4.portlet-title
       Hours By Activity This Quarter
 .portlet-body
-  %table{:id => "hours_activity_table", "class" => "table table-striped table-bordered table-hover ui-datatable", 
-  "data-info"=>"true", "data-global-search"=>"false", 
-  "data-length-change"=>"false"}
-    %thead
-      %tr
-        %th Activity
-        %th Total Hours This Quarter
-      - current_user.organization.quarterly_report.each do |activity|
-        %tr
-          %td= activity.name
-          %td= activity.total_hours
+  .row
+    .col-sm-6
+      %h5 Select Quarter to display
+      = form_tag({controller: :volunteer_activities, action: :index}, method: "get", id: :quarters_form) do
+        = select_tag(:quarter, options_for_select(@quarters.collect{|q|[ q[:name], q[:id]]}),
+          { :class => "form-control ui-select", onchange: "$('#quarters_form').submit();", prompt: "Select a Quarter"})
 
+        %br
+        %h4 Quarterly report for #{@displayed_quarter[:name]}
+        %table{:id => "hours_activity_table", "class" => "table table-striped table-bordered table-hover ui-datatable", 
+        "data-info"=>"true", "data-global-search"=>"false", 
+        "data-length-change"=>"false"}
+          %thead
+            %tr
+              %th Activity
+              %th Total Hours This Quarter
+            - @activities.each do |activity|
+              %tr
+                %td= activity.name
+                %td= activity.total_hours
 
