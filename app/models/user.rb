@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   def current_quarters_hours
+    quarter_activities = volunteer_activities.where("date > ?", DateTime.now.beginning_of_quarter)
+    return 0 if quarter_activities.nil?
     volunteer_activities.where("date > ?", DateTime.now.beginning_of_quarter).inject(0){|sum, v| sum+v.time}.to_f
   end
   

@@ -1,7 +1,7 @@
 .row
   .col-sm-5.col-md-3
     .profile-avatar
-      = image_tag "mvptheme/admin/avatar-4-sm.jpg", :class => "profile-avatar-img img-responsive thumbnail" 
+      = image_tag "mvptheme/admin/avatar-4-sm.jpg", :class => "profile-avatar-img img-responsive thumbnail"
   .col-md-6.col-sm-7
     %br.visible-xs
     %h3= @user.name
@@ -16,28 +16,30 @@
       %li
         %i.icon-li.fa.fa-mobile
         #{@user.phone}
+      %li
+        = link_to 'Delete', user_path(@user), method: :delete, data: { confirm: 'Are you sure? No going back!' } 
     %hr
     %br
     %br
     .heading-block
-      %h4 
+      %h4
         Hours Report
     .col-sm-6.col-md-3
       .row-stat
-        %p.row-stat-label 
-          Hours in #{Date.today.strftime("%B")} 
-        %h3.row-stat-value 
+        %p.row-stat-label
+          Hours in #{Date.today.strftime("%B")}
+        %h3.row-stat-value
           = @user.current_month_hours
     .col-sm-6.col-md-3
       .row-stat
         %p.row-stat-label Hours in this quarter
-        %h3.row-stat-value 
+        %h3.row-stat-value
           = @user.current_quarters_hours
     .col-sm-6.col-md-3
       .row-stat
-        %p.row-stat-label 
+        %p.row-stat-label
           Hours in #{Date.today.year}
-        %h3.row-stat-value 
+        %h3.row-stat-value
           = @user.current_year_hours
 
 #monthlyChart.chart-holder{ :style => "width:600px;height:300px" }
@@ -48,8 +50,8 @@
     %h4.portlet-title
       #{@user.name}'s hours in this quarter
 .portlet-body
-  %table{:id => "Hours_table", "class" => "table table-striped table-bordered table-hover ui-datatable", 
-  "data-paging" =>"true", "data-page-length"=>"10", "data-info"=>"true", "data-global-search"=>"false", 
+  %table{:id => "Hours_table", "class" => "table table-striped table-bordered table-hover ui-datatable",
+  "data-paging" =>"true", "data-page-length"=>"10", "data-info"=>"true", "data-global-search"=>"false",
   "data-length-change"=>"false"}
     %thead
       %tr
@@ -65,4 +67,3 @@
   var hoursHistory = $.parseJSON("#{j @history.to_json.html_safe}")
   -#$.plot($("#monthlyChart"), [ [[1, 0], [2, 4 ],[3,5]] ], { xaxis: { mode : "time", timeformat: "%b",  ticks: [[1, "Jan"], [2, "Feb"], [3, "Mar"], [4, "Apr"], [5, "May"], [6, "Jun"], [7, "Jul"], [8, "Aug"], [9, "Sep"], [10, "Oct"], [11, "Nov"], [12, "Dec"]]}})
   UserApp.initialize(hoursHistory);
-

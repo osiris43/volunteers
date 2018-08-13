@@ -10,4 +10,11 @@ class UsersController < ApplicationController
     @users = current_user.organization.regular_users
     @users.to_json
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    redirect_to dashboard_index_path
+  end
 end
