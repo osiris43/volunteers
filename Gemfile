@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.5.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.8'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 gem 'devise', '~> 4.2.0'
-gem 'therubyracer'
+#gem 'therubyracer'
 gem 'haml'
 gem 'haml-rails'
 gem 'wicked'
