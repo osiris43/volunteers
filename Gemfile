@@ -5,7 +5,7 @@ ruby '2.5.0'
 gem 'rails', '4.2.8'
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 0.21.0'
-gem 'devise', '~> 4.2.0'
+gem 'devise', '~> 4.4.0'
 #gem 'therubyracer'
 gem 'haml'
 gem 'haml-rails'
