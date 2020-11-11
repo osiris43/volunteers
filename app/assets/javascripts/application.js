@@ -22,7 +22,7 @@
 //= require Flot/jquery.flot.time
 //= require flot.tooltip/js/jquery.flot.tooltip.min
 //= require_tree ./mvpready
-//= require handlebars/handlebars.runtime
+//= require handlebars
 //= require users
 //= require organization
 //= require volunteer_activities
