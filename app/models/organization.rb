@@ -44,6 +44,10 @@ class Organization < ActiveRecord::Base
     volunteer_activities.joins(:activity).where(:date => basis_date.beginning_of_quarter..basis_date.end_of_quarter).select("activity_id, activities.name, sum(time) as total_hours").group("activity_id, activities.name")
   end
   
+  def yearly_report(basis_date=Date.today)
+    volunteer_activities.joins(:activity).where(:date => basis_date.beginning_of_year..basis_date.end_of_year).select("activity_id, activities.name, sum(time) as total_hours").group("activity_id, activities.name")
+  end
+  
   def monthly_report(basis_date=Date.today)
     this_month = volunteer_activities.joins(:activity).where(:date => basis_date.beginning_of_month..basis_date.end_of_month).select("activity_id, activities.name, sum(time) as total_hours").group("activity_id, activities.name")
     last_month = volunteer_activities.joins(:activity).where(:date => basis_date.last_month.beginning_of_month..basis_date.last_month.end_of_month).select("activity_id, activities.name, sum(time) as total_hours").group("activity_id, activities.name")

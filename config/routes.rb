@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :volunteer_activities
     resources :monthly_report
+    resources :yearly_report
   end
 
   resources :organizations
